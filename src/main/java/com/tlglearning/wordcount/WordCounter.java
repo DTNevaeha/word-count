@@ -5,12 +5,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Predicate;
 
 public class WordCounter {
 
-
-  private static final Set<String> BORING_WORDS = Set.of("and", "of", "in", "on", "i", "then", "than", "out", "a", "to", "if", "the");
+  private static final Set<String> BORING_WORDS = Set.of("and", "of", "in", "on", "i", "then",
+      "than", "out", "a", "to", "if", "the");
   private final Map<String, Integer> counts = new HashMap<>();
 
   private int totalWords;
@@ -62,7 +61,8 @@ public class WordCounter {
         .filter((word) -> word.length() > 5) //filters out words that are less than 5 characters
         .filter((s) -> !BORING_WORDS.contains(s)) //filters out these words
 //        .filter(Predicate.not(String::isEmpty))     This is the same as the above
-        .forEach((word) -> counts.put(word, 1 + counts.getOrDefault(word,0))); //adds to total word count or puts 0
-    }
+        .forEach((word) -> counts.put(word,
+            1 + counts.getOrDefault(word, 0))); //adds to total word count or puts 0
   }
+}
 
