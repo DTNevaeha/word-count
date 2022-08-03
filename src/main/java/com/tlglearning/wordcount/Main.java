@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class Main {
 
@@ -22,8 +25,14 @@ public class Main {
         // TODO pass line to a method of WordCounter.
         counter.add(line);
       }
-      // TODO do something with the WordCounter.
-      System.out.println(counter);
+
+      counter
+          .getCounts() //gets the word count
+          .entrySet() //gets pairs of words. Uses map.entry
+          .stream()
+          .sorted(Comparator.comparing(Entry<String, Integer>::getValue).reversed()) //reversed for most common words first
+          .limit(10) //top 10 most common used words
+          .forEach(System.out::println);
     }
   }
 

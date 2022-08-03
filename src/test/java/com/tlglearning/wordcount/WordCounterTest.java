@@ -11,8 +11,7 @@ class WordCounterTest {
     WordCounter counter = new WordCounter();
     String input = "The quick brown fox jumps over a lazy dog. Then it runs away!";
     String[] expected = {
-        "the", "quick", "brown", "fox", "jumps", "over",
-        "a", "lazy", "dog", "then", "it", "runs", "away"
+        "the", "quick", "brown", "fox", "jumps", "over","a", "lazy", "dog", "then", "it", "runs", "away"
     };
     String[] actual = counter.splitWords(input);
     assertArrayEquals(expected, actual);
